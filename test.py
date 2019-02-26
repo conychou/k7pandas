@@ -32,6 +32,8 @@ def percent_diff(a, b):
 	percent = (b - a) / a
 	print("percent difference in calculations:"+str(percent))
 
+percent_diff(opsd_daily['Consumption'].rolling(7, min_periods=1).mean(), numpy.asarray(k_opsd_7d.rolling_mean(7)))
+
 ## Moved your commented lines down
 #print(k_opsd_7d.rolling_mean(7))
 #print(opsd_7d == numpy.asarray(k_opsd_7d.rolling_mean(7)))
