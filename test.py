@@ -29,7 +29,7 @@ print("Time in k7: " + str(duration/1000))
 
 ## Calculate difference in results
 def percent_diff(a, b):
-	diff = (b - a) / a
+	percent = (b - a) / a
 	print("percent difference in calculations:"+str(percent))
 
 ## Moved your commented lines down
