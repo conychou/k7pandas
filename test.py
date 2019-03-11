@@ -12,7 +12,7 @@ opsd_daily = pd.read_csv('opsd_germany_daily.csv')
 ## Creating function so it can be timed in timeit 
 ## Timing pandas rolling mean
 def pandas_rolling_mean(): 
-	opsd_7d = opsd_daily['Consumption'].rolling(7, min_periods=1).mean()
+	opsd_7d = opsd_daily['Consumption'].rolling(7, min_periods=1).sum()
 
 duration = timeit.timeit(pandas_rolling_mean, number=1000)
 print("Time in pandas: " + str(duration/1000))
@@ -21,7 +21,7 @@ k_opsd_7d = kDataFrame(opsd_daily['Consumption'])
 
 ## Timing k7 rolling mean
 def k7_rolling_mean():
-	k_opsd_7d.rolling_mean(7)
+	k_opsd_7d.rolling_sum(7)
 
 duration = timeit.timeit(k7_rolling_mean, number=1000)
 print("Time in k7: " + str(duration/1000))

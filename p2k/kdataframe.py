@@ -33,6 +33,9 @@ class kDataFrame(object):
     def mean(self):
         return k('(+/{0})%(#{0})'.format(self.kcopy))
 
+    def rolling_sum(self, numpoints):
+        return k('movsum[{1};{0}]'.format(self.kcopy.x, numpoints))
+
     def rolling_mean(self, numpoints):
         #print(self.kcopy)
         return k('movavg[{1};{0}]'.format(self.kcopy.x, numpoints))
